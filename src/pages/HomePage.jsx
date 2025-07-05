@@ -4,7 +4,24 @@ import { useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Footer from '../components/Footer';
 
-// --- Hero Section ---
+// Placeholder Google image links
+// You will replace these with your actual Google image links
+const jordanbgLink = 'https://cdn.shopify.com/s/files/1/0043/5673/5045/files/AJ1_Dark_Marina_Blue_-_Blog.jpg?v=1644855511';
+const valentinoLink = 'https://i.pinimg.com/736x/bd/d6/a9/bdd6a991944fc07db62e6b64b9c5356d.jpg';
+const omegaLink = 'https://preview.redd.it/wts-omega-speedmaster-dark-side-of-the-moon-apollo-8-v0-fj8uaqov1k0e1.jpg?width=640&crop=smart&auto=webp&s=724e0afdfa0e88dc69430471869fe033e151621e';
+const jordangreenLink = 'https://www.shutterstock.com/image-photo/tangerang-indonesia-july-4-2023-600nw-2326629901.jpg';
+const categoriesBgLink = 'https://i.ytimg.com/vi/0ioM3lLsRZ4/hqdefault.jpg';
+const oooooLink = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQel5xOaPK-7--7YBj1D51esVuMnPdv5wUlJFv61q1XHlxNmXY3';
+const lvbagsLink = 'https://www.purseblog.com/images/2010/02/Louis-Vuitton-Mon-Monogram4.jpg';
+const valentinoWebpLink = 'https://mir-s3-cdn-cf.behance.net/project_modules/disp/0d122a140931963.624aebad5c2dc.jpg';
+const jordanyellowLink = 'https://img.pikbest.com/templates/20250426/air-jordan-4-retro-black-yellow_11686832.jpg!sw800';
+const radoLink = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhCF-Q_0t2LmfWOY9mEgikllWoyAtR9ZqcuQ&s';
+const gucciLink = 'https://i.pinimg.com/736x/db/8a/4c/db8a4cdb10242501af56489331713981.jpg';
+const lvLink = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwm5quHm8B4UIJDd4oFtgi_N6J-HJq1OMVd1A32nhfwBBk6iZeuO2_wPiewK7n2o09-Lw&usqp=CAU';
+const jordanbgJpgLink = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsjcxgLi8AzGKVzuVQ1ex8kaLPGSp8NPxsFoNQR3KSpvJ7hQcKjphGrpjbWIjsEj3bevM&usqp=CAU';
+const pradaLink = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5CZd8DRCgqPO2vA38sFRViviKzJaBg1wSbw&s';
+
+
 const HeroSection = ({ scrollYProgress }) => {
   const navigate = useNavigate();
   const translateY = useTransform(scrollYProgress, [0, 1], ['0vh', '150vh']);
@@ -16,7 +33,7 @@ const HeroSection = ({ scrollYProgress }) => {
         style={{ y: translateY }}
       >
         <img
-          src="src/assets/jordanbg.webp"
+          src={jordanbgLink}
           alt="Luxury fashion and tech items"
           className="w-full h-full object-cover"
           loading="eager"
@@ -42,7 +59,6 @@ const HeroSection = ({ scrollYProgress }) => {
           Discover a world of premium fashion, cutting-edge technology, and exquisite lifestyle products, meticulously curated for the discerning individual.
         </motion.p>
         <motion.button
-          // Updated onClick to navigate to /products
           onClick={() => document.getElementById('main-content').scrollIntoView({ behavior: 'smooth' })}
           className="px-12 py-5 bg-rose-700 text-white text-xl font-semibold rounded-full shadow-lg hover:bg-rose-800 transition-all duration-300 ease-in-out"
           whileHover={{ scale: 1.05, boxShadow: "0 10px 20px rgba(0,0,0,0.2)" }}
@@ -55,7 +71,6 @@ const HeroSection = ({ scrollYProgress }) => {
   );
 };
 
-// --- Blob Background (Subtle) ---
 const BlobBackground = () => (
   <>
     <motion.div
@@ -76,7 +91,6 @@ const BlobBackground = () => (
   </>
 );
 
-// --- Product Showcase (Top 3 Categories) ---
 const ProductShowcase = ({ title, description, img, color, path, delay = 0 }) => {
   const navigate = useNavigate();
   return (
@@ -102,7 +116,6 @@ const ProductShowcase = ({ title, description, img, color, path, delay = 0 }) =>
   );
 };
 
-// --- Featured Category Card ---
 const FeaturedCategoryCard = ({ title, img, path, delay }) => {
   const navigate = useNavigate();
   return (
@@ -127,7 +140,6 @@ const FeaturedCategoryCard = ({ title, img, path, delay }) => {
   );
 };
 
-// --- Spotlight Feature Block (Alternating Layout) ---
 const FeatureBlock = ({ title, description, img, path, reverse = false, delay = 0 }) => {
   const navigate = useNavigate();
   return (
@@ -160,7 +172,6 @@ const FeatureBlock = ({ title, description, img, path, reverse = false, delay = 
   );
 };
 
-// --- Product Card (for New Arrivals) ---
 const ProductCard = ({ title, price, img, path, delay }) => {
   const navigate = useNavigate();
   return (
@@ -170,7 +181,6 @@ const ProductCard = ({ title, price, img, path, delay }) => {
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.7, delay, ease: 'easeOut' }}
       className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-[1.03] transition-transform duration-300 group cursor-pointer"
-      // Updated to navigate to a generic product page
       onClick={() => navigate(`/products`)}
     >
       <div className="relative w-full h-60 overflow-hidden">
@@ -189,7 +199,6 @@ const ProductCard = ({ title, price, img, path, delay }) => {
   );
 };
 
-// --- Testimonial Card ---
 const TestimonialCard = ({ quote, author, delay }) => (
   <motion.div
     initial={{ opacity: 0, scale: 0.9 }}
@@ -203,7 +212,6 @@ const TestimonialCard = ({ quote, author, delay }) => (
   </motion.div>
 );
 
-// --- Main HomePage Component ---
 const HomePage = () => {
   const scrollContainerRef = useRef(null);
   const aboutSectionRef = useRef(null);
@@ -248,14 +256,14 @@ const HomePage = () => {
           <ProductShowcase
             title="Valentino Luxury Collection"
             description="Indulge in luxury, high fashion with Valentino's latest collection."
-            img="src/assets/valentino.jpeg"
+            img={valentinoLink}
             color="rose"
             path="smart-tech"
           />
           <ProductShowcase
             title="Ommega watch Collection"
             description="Explore the depths and stars, always with timeless precision."
-            img="src/assets/omega.jpg"
+            img={omegaLink}
             color="blue"
             path="jewelry"
             delay={0.15}
@@ -263,7 +271,7 @@ const HomePage = () => {
           <ProductShowcase
             title="Jordan shoes Collection"
             description="Unleash your inner legend with iconic style and athletic excellence."
-            img="src/assets/jordangreen.jpeg"
+            img={jordangreenLink}
             color="gray"
             path="fashion"
             delay={0.3}
@@ -278,7 +286,7 @@ const HomePage = () => {
           <div className='absolute inset-0 z-0'>
             <motion.div style={{y: categoriesBgY}} className='relative w-full h-[120%] -top-[10%]'>
                 <img
-                    src="src/assets/categories-bg.webp"
+                    src={categoriesBgLink}
                     alt="Categories Background"
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -301,37 +309,37 @@ const HomePage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               <FeaturedCategoryCard
                 title="Omega"
-                img="src/assets/ooooo.png"
+                img={oooooLink}
                 path="electronics"
                 delay={0}
               />
               <FeaturedCategoryCard
                 title="Louis Vuitton"
-                img="src/assets/lvbags.png"
+                img={lvbagsLink}
                 path="home-living"
                 delay={0.15}
               />
               <FeaturedCategoryCard
                 title="Valentino"
-                img="src/assets/valentino.webp"
+                img={valentinoWebpLink}
                 path="beauty-care"
                 delay={0.3}
               />
                <FeaturedCategoryCard
                 title="Jordan"
-                img="src/assets/jordanyellow.webp"
+                img={jordanyellowLink}
                 path="sports-outdoors"
                 delay={0.45}
               />
               <FeaturedCategoryCard
                 title="Rado"
-                img="src/assets/rado.webp"
+                img={radoLink}
                 path="books-media"
                 delay={0.6}
               />
               <FeaturedCategoryCard
                 title="Gucci"
-                img="src/assets/gucci.webp"
+                img={gucciLink}
                 path="kids-baby"
                 delay={0.75}
               />
@@ -362,14 +370,14 @@ const HomePage = () => {
             <FeatureBlock
               title="Louis Vuitton Collection"
               description="Experience the allure of Louis Vuitton. Discover exquisite designs and luxurious materials that define sophisticated travel and iconic personal style."
-              img="src/assets/lv.png"
+              img={lvLink}
               path="horizon-smartwatch"
               delay={0}
             />
             <FeatureBlock
               title="Nike Jordan Collectin"
               description="Step into a legacy of innovation and performance with Jordan Brand. Discover designs that fuse groundbreaking technology with timeless aesthetics, inspired by the greatest to ever play."
-              img="src/assets/jordanbg.jpg"
+              img={jordanbgJpgLink}
               path="artisan-leather-bag"
               reverse={true}
               delay={0.15}
@@ -377,7 +385,7 @@ const HomePage = () => {
             <FeatureBlock
               title="Omega Watch Collection"
               description="Experience the legacy of Omega. From lunar expeditions to Olympic timekeeping, their iconic watches blend timeless elegance with cutting-edge technology, making every moment an adventure"
-              img="src/assets/omega.jpg"
+              img={omegaLink}
               path="lumina-desk-lamp"
               delay={0.3}
             />
@@ -398,28 +406,28 @@ const HomePage = () => {
             <ProductCard
               title="Jordan "
               price="179.99"
-              img="src/assets/jordangreen.jpeg"
+              img={jordangreenLink}
               path="wireless-earbuds-pro"
               delay={0}
             />
             <ProductCard
               title="Prada"
               price="89.99"
-              img="src/assets/prada.jpeg"
+              img={pradaLink}
               path="minimalist-wallet"
               delay={0.1}
             />
             <ProductCard
               title="Gucci"
               price="129.99"
-              img="src/assets/gucci.webp"
+              img={gucciLink}
               path="smart-camera"
               delay={0.2}
             />
             <ProductCard
               title="Omega"
               price="499.99"
-              img="src/assets/ooooo.png"
+              img={oooooLink}
               path="espresso-machine"
               delay={0.3}
             />
@@ -489,7 +497,7 @@ const HomePage = () => {
           <motion.div
             className="absolute inset-0 z-0"
             style={{
-              backgroundImage: 'url(src/assets/omega.jpg)',
+              backgroundImage: `url(${omegaLink})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               y: aboutBgY,
