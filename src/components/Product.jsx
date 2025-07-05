@@ -4,7 +4,8 @@ import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { Star, Info, Check, XCircle } from 'lucide-react';
 
-const API_BASE_URL = 'http://localhost:3001';
+// === CRUCIAL FIX: Updated API_BASE_URL to your deployed backend URL ===
+const API_BASE_URL = 'https://slugma-backend.vercel.app'; 
 
 const COLORS_MAP = {
   'Red': '#EF4444',
