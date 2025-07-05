@@ -16,7 +16,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const { login, signup } = useAuth();
 
-  const luxoraLogo = "src/assets/slugma.png";
+  const luxoraLogo = "https://marriland.com/wp-content/plugins/marriland-core/images/pokemon/sprites/home/full/slugma.png";
 
   // Animation variants for smoother transitions
   const pageVariants = {

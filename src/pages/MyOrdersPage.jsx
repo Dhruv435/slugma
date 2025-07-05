@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBagIcon, ClockIcon, ArchiveBoxIcon } from '@heroicons/react/24/outline'; // Importing heroicons
 
-const API_BASE_URL = 'http://localhost:3001';
+const API_BASE_URL = 'https://slugma-backend.vercel.app'; 
 
 const MyOrdersPage = () => {
   const navigate = useNavigate();

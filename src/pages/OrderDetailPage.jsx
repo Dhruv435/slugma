@@ -10,7 +10,7 @@ import { useAuth } from '../context/AuthContext';
 import Footer from '../components/Footer'; // Add this import
 import { motion, AnimatePresence } from 'framer-motion';
 
-const API_BASE_URL = 'http://localhost:3001';
+const API_BASE_URL = 'https://slugma-backend.vercel.app'; 
 
 const deliveryOptions = [
   'Option 1 - 5 days to delivery',
