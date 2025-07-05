@@ -1,0 +1,13 @@
+/* App.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { 
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #E0E7FF; 
+}
