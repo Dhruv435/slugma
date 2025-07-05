@@ -54,31 +54,35 @@ const ProductPage = () => {
   const [isSearchActive, setIsSearchActive] = useState(false);
   const searchInputRef = useRef(null);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        const response = await fetch(`${API_BASE_URL}/api/products`);
-        
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.message || `HTTP error! Status: ${response.status}`);
-        }
+useEffect(() => {
+  const API_BASE_URL = 'https://slugma-backend.vercel.app';  // ✅ You can move this to a config or .env later
 
-        const data = await response.json();
-        setProducts(data);
+  const fetchProducts = async () => {
+    try {
+      setLoading(true);
+      setError(null);
 
-      } catch (err) {
-          console.error('❌ ProductPage: Error fetching products:', err);
-          setError(`Failed to load products: ${err.message}.`);
-      } finally {
-        setLoading(false);
+      const response = await fetch(`${API_BASE_URL}/api/products`);
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));  // Safe parse
+        throw new Error(errorData.message || `HTTP error! Status: ${response.status}`);
       }
-    };
 
-    fetchProducts();
-  }, []);
+      const data = await response.json();
+      setProducts(data);
+
+    } catch (err) {
+      console.error('❌ ProductPage: Error fetching products:', err);
+      setError('Failed to load products: Please try again later.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchProducts();
+}, []);
+
 
   const filteredBrandsForDisplay = useMemo(() => {
     let brands = new Set();
