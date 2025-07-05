@@ -5,7 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Product from '../components/Product'; // Corrected import path for Product component
 import Footer from '../components/Footer';
 
-const API_BASE_URL = 'http://localhost:3001';
+// === CRUCIAL FIX: Updated API_BASE_URL to your deployed backend URL ===
+const API_BASE_URL = 'https://slugma-backend.vercel.app'; 
+// If you ever run this frontend locally again, you might need to change this back to 'http://localhost:3001'
+// or use environment variables (recommended for production).
 
 const CATEGORIES = ['All', 'Shoes', 'Watch', 'Perfume', 'Belt', 'Bag'];
 
@@ -59,10 +62,12 @@ const ProductPage = () => {
       try {
         setLoading(true);
         setError(null);
+        // The fetch call will now go to your deployed Vercel backend
         const response = await fetch(`${API_BASE_URL}/api/products`);
         
         if (!response.ok) {
-          const errorData = await response.json();
+          // Attempt to parse error message from backend if available
+          const errorData = await response.json().catch(() => ({})); // Safe parse
           throw new Error(errorData.message || `HTTP error! Status: ${response.status}`);
         }
 
@@ -78,7 +83,7 @@ const ProductPage = () => {
     };
 
     fetchProducts();
-  }, []);
+  }, []); // Empty dependency array means this runs once on component mount
 
   const filteredBrandsForDisplay = useMemo(() => {
     let brands = new Set();
@@ -96,7 +101,7 @@ const ProductPage = () => {
     }
     
     const sortedBrands = Array.from(brands).sort((a, b) => {
-        if (a === '' ) return 1;
+        if (a === '' ) return 1; // Empty string brands at the end
         if (b === '' ) return -1;
         return a.localeCompare(b);
     });
@@ -105,6 +110,7 @@ const ProductPage = () => {
   }, [products, selectedCategory]);
 
   useEffect(() => {
+    // Reset selected brand if the current category no longer contains it
     if (selectedBrand !== 'All' && !filteredBrandsForDisplay.includes(selectedBrand)) {
       setSelectedBrand('All');
     }
@@ -157,7 +163,11 @@ const ProductPage = () => {
     if (searchTerm) {
       const lowerCaseSearchTerm = searchTerm.toLowerCase();
       tempProducts = tempProducts.filter(product =>
-        product.name.toLowerCase().startsWith(lowerCaseSearchTerm)
+        product.name.toLowerCase().startsWith(lowerCaseSearchTerm) ||
+        product.description.toLowerCase().includes(lowerCaseSearchTerm) ||
+        product.category.toLowerCase().includes(lowerCaseSearchTerm) ||
+        (product.brand && product.brand.toLowerCase().includes(lowerCaseSearchTerm)) ||
+        (product.tags && product.tags.some(tag => tag.toLowerCase().includes(lowerCaseSearchTerm)))
       );
     }
     
