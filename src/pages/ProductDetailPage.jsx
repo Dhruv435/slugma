@@ -427,7 +427,7 @@ const ProductDetailPage = () => {
               {product.sku && <p className="text-lg text-gray-700"><span className="font-semibold">SKU:</span> {product.sku}</p>}
             </div>
             <div className="space-y-4">
-              {product.weight > 0 && <p className="text-lg text-gray-700"><span className="font-semibold">Weight:</span> {product.weight} kg</p>}
+              
               {(product.dimensions?.length > 0 || product.dimensions?.width > 0 || product.dimensions?.height > 0) && (
                 <p className="text-lg text-gray-700"><span className="font-semibold">Dimensions (LxWxH):</span> {product.dimensions.length} x {product.dimensions.width} x {product.dimensions.height} cm</p>
               )}
