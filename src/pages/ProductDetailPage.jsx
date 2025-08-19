@@ -262,7 +262,7 @@ const ProductDetailPage = () => {
 
 
   return (
-    <div className="min-h-screen flex flex-col mt-20"> {/* Added flex-col to enable footer stick to bottom */}
+    <div className="min-h-screen flex flex-col mt-32"> {/* Added flex-col to enable footer stick to bottom */}
       <main className="flex-grow p-6 py-8 max-w-6xl mx-auto bg-white rounded-lg shadow-lg"> {/* Added py-8 for top/bottom padding */}
         {message && (
           <div className={`p-3 mb-4 rounded-md ${message.startsWith('✅') ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>

@@ -76,7 +76,7 @@ const MyOrdersPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 font-inter flex flex-col">
+    <div className="min-h-screen bg-gray-50 font-inter flex flex-col mt-20">
       <div className="container mx-auto px-4 py-12 lg:py-16 flex-1">
         <motion.div
           className="bg-white rounded-3xl shadow-xl p-6 md:p-10 lg:p-12 mb-12 border border-gray-100"

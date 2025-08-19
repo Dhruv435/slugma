@@ -1,12 +1,10 @@
-// File: user/pages/UserProfile.jsx
-
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { User, ListOrdered, Edit, Mail, Phone, Cake } from 'lucide-react'; // Added more icons for personal info
+import { User, ListOrdered, Edit, Mail, Phone, Cake } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const API_BASE_URL = 'https://slugma-backend.vercel.app'; 
+const API_BASE_URL = 'https://slugma-backend.vercel.app';
 
 const UserProfile = () => {
   const { user, isAuthenticated, logout, checkUserExists } = useAuth();
@@ -104,7 +102,7 @@ const UserProfile = () => {
 
   return (
     <motion.div
-      className="min-h-screen bg-gray-50 font-inter flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8"
+      className="min-h-screen bg-gray-50 font-inter flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8 mt-20"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -131,20 +129,32 @@ const UserProfile = () => {
                 <User size={28} className="mr-3 text-rose-600" />
                 Personal Information
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 text-lg">
-              <p className="flex items-center"><User size={20} className="mr-2 text-gray-500" /> <strong>Username:</strong> {profileData.username}</p>
-              <p className="flex items-center"><Mail size={20} className="mr-2 text-gray-500" /> <strong>Email:</strong> {profileData.email || 'N/A'}</p>
-              <p className="flex items-center"><Phone size={20} className="mr-2 text-gray-500" /> <strong>Mobile:</strong> {profileData.mobileNumber || 'N/A'}</p>
-              <p className="flex items-center"><Cake size={20} className="mr-2 text-gray-500" /> <strong>Age:</strong> {profileData.age || 'N/A'}</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-gray-700 text-lg">
+              <div className="flex items-center p-2 bg-white rounded-lg shadow-sm border border-gray-100">
+                <User size={20} className="mr-3 text-gray-500" />
+                <p><strong>Username:</strong> {profileData.username}</p>
+              </div>
+              <div className="flex items-center p-2 bg-white rounded-lg shadow-sm border border-gray-100">
+                <Mail size={20} className="mr-3 text-gray-500" />
+                <p><strong>Email:</strong> {profileData.email || 'N/A'}</p>
+              </div>
+              <div className="flex items-center p-2 bg-white rounded-lg shadow-sm border border-gray-100">
+                <Phone size={20} className="mr-3 text-gray-500" />
+                <p><strong>Mobile:</strong> {profileData.mobileNumber || 'N/A'}</p>
+              </div>
+              <div className="flex items-center p-2 bg-white rounded-lg shadow-sm border border-gray-100">
+                <Cake size={20} className="mr-3 text-gray-500" />
+                <p><strong>Age:</strong> {profileData.age || 'N/A'}</p>
+              </div>
             </div>
             <motion.button
               onClick={() => { /* Implement edit profile functionality */ }}
-              className="mt-8 w-full bg-rose-700 text-white py-2.5 px-6 rounded-lg font-semibold text-base hover:bg-rose-800 transition duration-300 shadow-md" // Adjusted button size
+              className="mt-8 w-full bg-rose-700 text-white py-3 px-6 rounded-lg font-semibold text-lg hover:bg-rose-800 transition duration-300 shadow-md flex items-center justify-center"
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
             >
-              Edit Profile
+              <Edit size={20} className="mr-2" /> Edit Profile
             </motion.button>
           </motion.div>
 
@@ -159,15 +169,15 @@ const UserProfile = () => {
                   View My Orders
                 </Link>
             </h3>
-            <p className="text-gray-700 text-lg mb-6">Track active orders and view your complete purchase history.</p>
+            <p className="text-gray-700 text-lg mb-6 text-center">Track active orders and view your complete purchase history.</p>
             <motion.button
               onClick={() => navigate('/my-orders')}
-              className="w-full bg-gray-800 text-white py-2.5 px-6 rounded-lg font-semibold text-base hover:bg-gray-900 transition duration-300 shadow-md" // Adjusted button size
+              className="w-full bg-gray-800 text-white py-3 px-6 rounded-lg font-semibold text-lg hover:bg-gray-900 transition duration-300 shadow-md flex items-center justify-center"
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
             >
-              Go to Orders
+              <ListOrdered size={20} className="mr-2" /> Go to Orders
             </motion.button>
           </motion.div>
         </div>
@@ -175,7 +185,7 @@ const UserProfile = () => {
         {/* Logout button - positioned at the bottom of the main card */}
         <motion.button
           onClick={handleLogout}
-          className="mt-auto w-full bg-red-600 text-white py-2.5 px-6 rounded-lg font-semibold text-base hover:bg-red-700 transition duration-300 shadow-md" // Adjusted button size
+          className="mt-auto w-full bg-red-600 text-white py-3 px-6 rounded-lg font-semibold text-lg hover:bg-red-700 transition duration-300 shadow-md flex items-center justify-center"
           variants={buttonVariants}
           whileHover="hover"
           whileTap="tap"
