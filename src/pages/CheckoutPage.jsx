@@ -15,7 +15,7 @@ import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import Footer from '../components/Footer';
 
-const API_BASE_URL = 'https://slugma-backend.vercel.app'; 
+const API_BASE_URL = 'http://localhost:3001';
 
 const CheckoutPage = () => {
   const navigate = useNavigate();

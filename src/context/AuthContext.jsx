@@ -35,8 +35,8 @@ export const AuthProvider = ({ children }) => {
   // Ref to store the interval ID for cleanup
   const intervalRef = useRef(null); // Re-added useRef
 
-  // === CRUCIAL FIX: Updated API_BASE_URL to your deployed backend URL ===
-  const API_BASE_URL = 'https://slugma-backend.vercel.app'; 
+  // API Base URL
+  const API_BASE_URL = 'http://localhost:3001';
 
   // Effect to update localStorage whenever user state changes
   useEffect(() => {

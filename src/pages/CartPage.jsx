@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MinusCircleIcon, PlusCircleIcon, TrashIcon, ShoppingCartIcon, ArrowRightCircleIcon, TagIcon } from '@heroicons/react/24/outline';
 import Footer from '../components/Footer'; // Import the Footer component
 
-const API_BASE_URL = 'https://slugma-backend.vercel.app'; 
+const API_BASE_URL = 'http://localhost:3001';
 
 const CartPage = () => {
   const navigate = useNavigate();

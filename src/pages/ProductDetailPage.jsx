@@ -9,7 +9,7 @@ import StarRating from '../components/StarRating';
 import Footer from '../components/Footer';
 import Product from '../components/Product'; // Corrected import path
 
-const API_BASE_URL = 'https://slugma-backend.vercel.app'; 
+const API_BASE_URL = 'http://localhost:3001';
 
 // Predefined colors for display (must match AddProduct.jsx)
 const COLORS = [

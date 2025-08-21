@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { User, ListOrdered, Edit, Mail, Phone, Cake } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const API_BASE_URL = 'https://slugma-backend.vercel.app';
+const API_BASE_URL = 'http://localhost:3001';
 
 const UserProfile = () => {
   const { user, isAuthenticated, logout, checkUserExists } = useAuth();

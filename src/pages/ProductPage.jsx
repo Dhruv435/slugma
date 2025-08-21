@@ -6,7 +6,8 @@ import Product from '../components/Product'; // Corrected import path for Produc
 import Footer from '../components/Footer';
 
 // === CRUCIAL FIX: Updated API_BASE_URL to your deployed backend URL ===
-const API_BASE_URL = 'https://slugma-backend.vercel.app'; 
+const API_BASE_URL = 'http://localhost:3001';
+
 // If you ever run this frontend locally again, you might need to change this back to 'http://localhost:3001'
 // or use environment variables (recommended for production).
 
